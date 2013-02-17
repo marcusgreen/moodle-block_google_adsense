@@ -48,7 +48,7 @@ class block_google_adsense extends block_base {
     }
 
     /**
-     * If a title has been saved show that, if not display the default,
+     * If a title has been saved show that, if not displayed the default,
      * i.e. new Google Adsense Block (in English)
      */
     public function specialization() {
