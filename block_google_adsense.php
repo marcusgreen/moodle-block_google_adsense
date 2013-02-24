@@ -36,7 +36,7 @@ class block_google_adsense extends block_base {
      */
     public function init() {
         $this->title = get_string('title', 'block_google_adsense');
-        $this->version = 2007032000;
+        $this->version = 2007032001;
     }
 
     /**

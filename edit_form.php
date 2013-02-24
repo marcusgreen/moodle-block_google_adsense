@@ -40,12 +40,12 @@ class block_google_adsense_edit_form extends block_edit_form {
         array(' '), false);
         unset($group);
 
-        //perhaps config_ad_client should be renamed as config_ad_publisher_id or similar?
+        // Perhaps config_ad_client should be renamed as config_ad_publisher_id or similar?
 
         $group[]= $mform->createElement('text', 'config_ad_client',
         get_string('ad_client', 'block_google_adsense'), array('size' => 25));
 
-        //static is not good but it will do in the absense of popup ajax style (MDL-26072)
+        // ...static is not good but it will do in the absense of popup ajax style (MDL-26072).
         $group[]= $mform->createElement('static', 'ad_client_text', 'label',
         get_string('insertID', 'block_google_adsense'));
 
@@ -61,7 +61,7 @@ class block_google_adsense_edit_form extends block_edit_form {
         get_string('ad_height', 'block_google_adsense'), array('size' => 5));
 
         $mform->setDefault('config_ad_height', '600');
-        //might be good to have rules for other fields
+        // Might be good to have rules for other fields.
         $mform->addRule( 'config_ad_height', get_string('numeric_error',
         'block_google_adsense'), 'numeric');
 

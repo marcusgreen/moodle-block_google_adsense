@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
-// block_google_adsense.php - created by GennaroVarriale.it
+// Block_google_adsense.php - originally created by GennaroVarriale.it.
 $string['blank_publisher_id_error']='ID Publisher non può essere vuoto';
 $string['configthis'] = 'Bisogna configurare questo blocco';
 $string['configtitle'] = 'Titolo blocco';

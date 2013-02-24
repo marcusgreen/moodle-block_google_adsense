@@ -13,7 +13,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-$plugin->version = 2007101510;   // The (date) version of this plugin.
-$plugin->requires = 2012110900;  // Requires this Moodle version.
-$plugin->maturity = MATURITY_BETA;
-$plugin->release  = "1.0beta2 (20111115)"; // User-friendly version number.
+defined('MOODLE_INTERNAL') || die;
+
+
