@@ -16,3 +16,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 
+if ($ADMIN->fulltree) {
+    $settings->add(new admin_setting_configtext('block_google_adsense/publisherid',
+         get_string('defaultpubid', 'block_google_adsense'),
+         get_string('defaultpubid_text', 'block_google_adsense'),
+         ""));
+}
