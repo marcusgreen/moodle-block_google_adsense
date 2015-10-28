@@ -38,6 +38,15 @@ class block_google_adsense_edit_form extends block_edit_form {
 
         $mform->addGroup($group, 'configtitle', get_string('configtitle', 'block_google_adsense'),
         array(' '), false);
+        $mform->setType('config_ad_title',PARAM_TEXT);
+        $mform->setType('config_ad_client',PARAM_TEXT);
+        $mform->setType('config_ad_width',PARAM_TEXT);
+        $mform->setType('config_ad_height',PARAM_TEXT);
+        
+        $mform->setType('config_ad_type',PARAM_TEXT);
+        $mform->setType('config_ad_channel',PARAM_TEXT);
+        $mform->setType('config_ad_height',PARAM_TEXT);        
+
         unset($group);
 
         // Perhaps config_ad_client should be renamed as config_ad_publisher_id or similar?
@@ -46,12 +55,19 @@ class block_google_adsense_edit_form extends block_edit_form {
         get_string('ad_client', 'block_google_adsense'), array('size' => 25));
 
         // ...static is not good but it will do in the absense of popup ajax style (MDL-26072).
-        $group[]= $mform->createElement('static', 'ad_client_text', 'label',
-        get_string('insertID', 'block_google_adsense'));
+        $group[]= $mform->createElement('static', 'ad_client_text', 'label');
+        
+        $config = get_config('block_google_adsense');
 
-        $mform->addGroup($group, 'publisher_id',
-        get_string('ad_client', 'block_google_adsense'), array(' '), false);
-        unset($group);
+        //$mform->addGroup($group, 'publisher_id',                
+        //get_string('ad_client', 'block_google_adsense'), array(' '), false);
+        //$mform->setDefault('publisher_id', $config->publisherid);
+        // unset($group);
+        $mform->addElement('text','publisher_id','Publisher ID');
+        $mform->setDefault('publisher_id', $config->publisherid);
+        $mform->setType('publisher_id',PARAM_TEXT);        
+
+        
 
         $mform->addElement('text', 'config_ad_width',
         get_string('ad_width', 'block_google_adsense'), array('size' => 5));
@@ -70,10 +86,16 @@ class block_google_adsense_edit_form extends block_edit_form {
         $format_list=get_string('format_list', 'block_google_adsense').
         '<a href=https://www.google.com/adsense/adformats target=_blank>';
         $format_list=$format_list.get_string('full_list', 'block_google_adsense').'</a>';
+        
+        $mform->setType('config_ad_format',PARAM_TEXT);        
+
+        
         $group[]=$mform->createElement('static', 'format_list', 'label', $format_list);
         $mform->addGroup($group, 'format_fields', get_string('ad_format', 'block_google_adsense'),
         array(' '), false);
+
         $mform->setDefault('config_ad_format', '160x600_as');
+
 
         $mform->addElement('text', 'config_ad_type',
         get_string('ad_type', 'block_google_adsense'), array('size' => 4));
@@ -83,23 +105,36 @@ class block_google_adsense_edit_form extends block_edit_form {
         get_string('ad_channel', 'block_google_adsense'), array('size' => 4));
         $mform->setDefault('config_ad_channel', '');
 
+
         $mform->addElement('text', 'config_ad_color_border',
         get_string('ad_color_border', 'block_google_adsense'), array('size' => 5));
-        $mform->setDefault('config_ad_color_border', 'FFFFFF');
+        $mform->setType('config_ad_color_border',PARAM_TEXT);
+        //$mform->setDefault('config_ad_color_border', 'FFFFFF');
+
+
 
         $mform->addElement('text', 'config_ad_color_bg',
         get_string('ad_color_bg', 'block_google_adsense'), array('size' => 4));
         $mform->setDefault('config_ad_color_bg', 'FFFFFF');
+        $mform->setType('config_ad_color_bg',PARAM_TEXT);
+
 
         $mform->addElement('text', 'config_ad_color_link',
         get_string('ad_color_link', 'block_google_adsense'), array('size' => 4));
         $mform->setDefault('config_ad_color_link', '0000FF');
+        $mform->setType('config_ad_color_link',PARAM_TEXT);
+
         $mform->addElement('text', 'config_ad_color_text',
         get_string('ad_color_text', 'block_google_adsense'), array('size' => 4));
         $mform->setDefault('config_ad_color_text', '000000');
+        $mform->setType('config_ad_color_text',PARAM_TEXT);
+
         $mform->addElement('text', 'config_ad_color_url',
         get_string('ad_color_url', 'block_google_adsense'), array('size' => 4));
+        $mform->setType('config_ad_color_url',PARAM_TEXT);
         $mform->setDefault('config_ad_color_url', '008000');
+        
+        
         $mform->addElement('html', '<a href=http://www.google.com/adsense target=null>
         http://www.google.com/adsense</a>');
     }
