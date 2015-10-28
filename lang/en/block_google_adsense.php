@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+$string['defaultpubid'] = 'Default Adsense Publisher ID';
+$string['defaultpubid_text'] = 'Will appear in each new block instance';
 $string['blank_publisher_id_error']='The Publisher id cannot be blank';
 $string['pluginname'] = 'Google Adsense block';
 $string['simplehtml'] = 'Google Adsense';
